@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Expense Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    
+    <div class="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg" style="width: 80%;">
+        <h1 class="text-3xl font-semibold text-center mb-8">Income Expense Calculator</h1>
+
+        
+        <div class="flex justify-between items-center bg-gray-50 p-4 mb-6 rounded-lg shadow-md text-lg">
+            <div class="text-yellow-500">
+                <h3>Total Income</h3>
+                <p id="total-income">$0.00</p>
+            </div>
+            <div class="text-red-500">
+                <h3>Total Expense</h3>
+                <p id="total-expense">$0.00</p>
+            </div>
+            <div class="text-green-500">
+                <h3>Net Balance</h3>
+                <p id="net-balance">$0.00</p>
+            </div>
+        </div>
+
+        
+        <form id="entry-form" class="flex flex-wrap gap-4 mb-8">
+            <input type="text" id="description" placeholder="Description" class="flex-1 p-2 border rounded-md text-lg"
+                required>
+            <input type="number" id="amount" placeholder="Amount" class="flex-1 p-2 border rounded-md text-lg" required>
+            <input type="date" id="date" class="flex-1 p-2 border rounded-md text-lg" required>
+            <select id="type" class="flex-1 p-2 border rounded-md text-lg">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button type="submit" class="p-2 bg-blue-500 text-white rounded-md text-lg">Add Entry</button>
+        </form>
+
+       
+        <div class="flex justify-around mb-6 text-lg">
+            <label><input type="radio" name="filter" value="all" checked> All</label>
+            <label><input type="radio" name="filter" value="income"> Income</label>
+            <label><input type="radio" name="filter" value="expense"> Expense</label>
+        </div>
+        
+         <div class="overflow-x-auto">
+            <table class="min-w-full table-auto bg-white shadow-md rounded-lg">
+                <thead>
+                    <tr class="bg-gray-50 text-lg">
+                        <th class="py-3 px-4">Date</th>
+                        <th class="py-3 px-4">Description</th>
+                        <th class="py-3 px-4">Type</th>
+                        <th class="py-3 px-4">Amount</th>
+                        <th class="py-3 px-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="entries-table-body" class="divide-y divide-gray-200">
+               </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
